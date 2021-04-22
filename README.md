@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
+# Minesweeper
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
@@ -18,16 +18,7 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+ > Our project proposal is to create our own minesweeper game. This is interesting to us because we all enjoy playing video games in our spare time and thought it would be fun to try our hand at making our own. Matthew used to play tons of minesweeper walking to and from classes. We thought it would be a great way to involve our field of study with our hobbies. We plan to use C++, PuTTy, GitHub, googletest, Valgrind, MS Visual Studio ? ? ? The input will be initially several menu options before the game begins including: resume game, create new game, and see high score. Upon game creation, the player will have the option to set the size of the board as well as the number of mines or select one of the preset difficulty options with a preset board size and mine count. In game, the player has the option to first select an unswept tile and has the option to either sweep or flag it. Outputs would include menu generation and confirmation of selections. Other outputs include the minesweeper board itself and the board state following player input. the two design patterns we will be using are composite and state design patterns. We chose state design pattern because tile behavior upon sweeping would vary depending on the internal state of the tile(mine tile, number tile, empty tile). The feature we will be implementing with this pattern is the action displayed upon sweeping. The problem we anticipated encountering was having too many objects for different tile states and over-complexifying the project. With this design pattern, we will be able to create less objects which have varying states and behaviors based on user input and the type of tile it was randomly selected to be. We chose composite design pattern because everything that we interact with is a tile and that could be the base class. More specifically, we need to deal with how many different type of tiles there are and it would be nice to have a basic class to inherit from.
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
