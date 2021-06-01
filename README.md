@@ -60,10 +60,11 @@
  ## Installation/Usage
  > Instructions on installing and running your application
 
-To play our game, just run the main executable and the game will appear as an output from the source code. There is no need to install any sort of GUI or third party application, just run the code in a compiler/IDE.
+To play our game, just run the main executable: ./play_game 
+The game will appear as an output within PuTTy. There is no need to install any sort of GUI or third party application, just run the code in a compiler/IDE.
  
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
 
-Our project was tested using google tests and specific unit tests to ensure the game runes smoothly, such as testing if the difficulty produces the correct amount of tiles. We built executables using CMake as well as ran Valgrind to avoid any memory leaks. 
+Our project was tested using google tests and specific unit tests to ensure the game runes smoothly, such as testing the menu, if the difficulty produces the correct amount of tiles. We built executables using CMake as well as ran Valgrind to avoid any memory leaks. 
  
