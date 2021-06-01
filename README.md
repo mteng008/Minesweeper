@@ -55,8 +55,12 @@
  
  ## Screenshots
  > Screenshots of the input/output after running your application
-
-
+ 
+ Before running the application: https://gyazo.com/c150c72a244933490f7ef39d1debf627
+ Runtime/Menu: https://gyazo.com/ac947048dd1ad3f40d4c6d62234d93f1
+ New Game on Medium Difficulty: https://gyazo.com/2ac852a74cbb0ae796fc2d1b392cf595
+ Example of a losing game: https://gyazo.com/27f688abd7dd545bbf104d5dc7fbfb3b
+ 
  ## Installation/Usage
  > Instructions on installing and running your application
 
