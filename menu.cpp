@@ -1,43 +1,32 @@
 #ifndef MENU_CPP
 #define MENU_CPP
+
 #include "menu.h"
+#include "board.h"
+
+void outputTitle();
+void customSettings(char &side, int& numMines, int& sideLength);
 
 void menu()
 {
 	char choice;
 	char difficulty;
-	bool reset = false;
-	bool diffreset = false;
-	bool invalid = false;
+	bool reset;
+	bool diffreset;
 
 	do
 	{
 		reset = false;
 		system("CLS");
 
-		cout << "   _____  .__                _________                                          " << endl
-			<< "  /     \\ |__| ____   ____  /   _____/_  _  __ ____   ____ ______   ___________ " << endl
-			<< " /  \\ /  \\|  |/    \\_/ __ \\ \\_____  \\\\ \\/ \\/ // __ \\_/ __ \\\\____ \\_/ __ \\_  __ \\" << endl
-			<< "/    Y    \\  |   |  \\  ___/ /        \\\\     /\\  ___/\\  ___/|  |_> >  ___/|  | \\/" << endl
-			<< "\\____|__  /__|___|  /\\___  >_______  / \\/\\_/  \\___  >\\___  >   __/ \\___  >__|   " << endl
-			<< "        \\/        \\/     \\/        \\/             \\/     \\/|__|        \\/       " << endl;
+		outputTitle();
 
-		if (invalid == true)
-		{
-			cout << "Invalid input." << endl;
-			invalid = false;
-		}
-		else
-		{
-			cout << endl;
-		}
+		cout << endl;
 
 		cout << setw(48)
 			<< "[  New Game(N)  ]" << endl << endl
 			<< setw(48)
 			<< "[ Resume Game(R)]" << endl << endl
-			<< setw(48)
-			<< "[ High Scores(H)]" << endl << endl
 			<< setw(48)
 			<< "[  Exit Game(E) ]" << endl << endl
 			<< setw(49)
@@ -54,15 +43,9 @@ void menu()
 				diffreset = false;
 				system("CLS");
 
-				if (invalid == true)
-				{
-					cout << "Invalid input." << endl;
-					invalid = false;
-				}
-				else
-				{
-					cout << endl;
-				}
+				outputTitle();
+
+				cout << endl;
 
 				cout << setw(48)
 					<< "[    Easy(E)    ]" << endl << endl
@@ -70,6 +53,8 @@ void menu()
 					<< "[   Medium(M)   ]" << endl << endl
 					<< setw(48)
 					<< "[    Hard(H)    ]" << endl << endl
+					<< setw(48)
+					<< "[   Custom(C)   ]" << endl << endl
 					<< setw(48)
 					<< "[    Back(B)    ]" << endl << endl
 					<< setw(50)
@@ -81,17 +66,47 @@ void menu()
 				switch (difficulty)
 				{
 				case 'E':
+				{
+					Easy* easy = new Easy();
+					easy->play();
+				}
 					break;
 				case 'M':
+				{
+					Medium* medium = new Medium();
+					medium->play();
+				}
 					break;
 				case 'H':
+				{
+					Hard* hard = new Hard();
+					hard->play();
+				}
+					break;
+				case 'C':
+				{
+					char side;
+					int numMines;
+					int sideLength;
+
+					customSettings(side, numMines, sideLength);
+
+					if (side == 'B')
+					{
+						diffreset = true;
+					}
+					else
+					{
+						Custom* custom = new Custom(sideLength, numMines);
+						custom->play();
+					}
+				}
 					break;
 				case 'B':
 					reset = true;
 					break;
 				default:
 					diffreset = true;
-					invalid = true;
 				}
 			} while (diffreset == true);
 			break;
@@ -103,8 +118,64 @@ void menu()
 			break;
 		default:
 			reset = true;
-			invalid = true;
 		}
+	} while (reset == true);
+}
+
+void outputTitle()
+{
+	cout << "   _____  .__                _________                                          " << endl
+		<< "  /     \\ |__| ____   ____  /   _____/_  _  __ ____   ____ ______   ___________ " << endl
+		<< " /  \\ /  \\|  |/    \\_/ __ \\ \\_____  \\\\ \\/ \\/ // __ \\_/ __ \\\\____ \\_/ __ \\_  __ \\" << endl
+		<< "/    Y    \\  |   |  \\  ___/ /        \\\\     /\\  ___/\\  ___/|  |_> >  ___/|  | \\/" << endl
+		<< "\\____|__  /__|___|  /\\___  >_______  / \\/\\_/  \\___  >\\___  >   __/ \\___  >__|   " << endl
+		<< "        \\/        \\/     \\/        \\/             \\/     \\/|__|        \\/       " << endl;
+}
+
+void customSettings(char& side, int& numMines, int& sideLength)
+{
+	bool reset;
+	
+	do
+	{
+		reset = false;
+		system("CLS");
+
+		outputTitle();
+
+		cout << endl;
+
+		cout << setw(48)
+			<< "[    Back(B)    ]" << endl << endl 
+			<< setw(56)
+			<< "Enter side length (1-30): ";
+		cin >> side;
+
+		side = toupper(side);
+
+		if (side == 'B')
+		{
+			return;
+		}
+
+		if ((side - '0' >= 1) && (side - '0' <= 30))
+		{
+			sideLength = side - '0';
+			cout << endl
+				<< setw(57)
+				<< "Enter number of mines (1-200): ";
+			cin >> numMines;
+		}
+		else
+		{
+			reset = true;
+		}
+
+		if ((numMines < 1) || (numMines > 200) || (numMines > (sideLength * sideLength)))
+		{
+			reset = true;
+		}
+		
 	} while (reset == true);
 }
 
