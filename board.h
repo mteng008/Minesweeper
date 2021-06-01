@@ -34,6 +34,7 @@ protected:
 		int mines[][2], int row, int col, int* movesLeft);
 	int countAdjacentMines(int row, int col, int mines[][2], char realBoard[][MAXSIDE]);
 public:
+	~Board();
 	void play();
 };
 

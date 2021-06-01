@@ -17,7 +17,7 @@ void menu()
 	do
 	{
 		reset = false;
-		system("CLS");
+		system("clear");
 
 		outputTitle();
 
@@ -41,7 +41,7 @@ void menu()
 			do
 			{
 				diffreset = false;
-				system("CLS");
+				system("clear");
 
 				outputTitle();
 
@@ -69,18 +69,21 @@ void menu()
 				{
 					Easy* easy = new Easy();
 					easy->play();
+					delete easy;
 				}
 					break;
 				case 'M':
 				{
 					Medium* medium = new Medium();
 					medium->play();
+					delete medium;
 				}
 					break;
 				case 'H':
 				{
 					Hard* hard = new Hard();
 					hard->play();
+					delete hard;
 				}
 					break;
 				case 'C':
@@ -94,6 +97,7 @@ void menu()
 					{
 						Custom* custom = new Custom(sideLength, numMines);
 						custom->play();
+						delete custom;
 					}
 					else
 					{
@@ -140,7 +144,7 @@ void customSettings(int& sideLength, int& numMines, bool& isB)
 	
 	do
 	{
-		system("CLS");
+		system("clear");
 
 		outputTitle();
 
@@ -164,7 +168,7 @@ void customSettings(int& sideLength, int& numMines, bool& isB)
 			do
 			{
 				sideChosen = false;
-				system("CLS");
+				system("clear");
 
 				outputTitle();
 
@@ -192,7 +196,7 @@ void customSettings(int& sideLength, int& numMines, bool& isB)
 			do
 			{
 				minesChosen = false;
-				system("CLS");
+				system("clear");
 
 				outputTitle();
 
@@ -201,7 +205,7 @@ void customSettings(int& sideLength, int& numMines, bool& isB)
 				cout << setw(48)
 					<< "[    Side(S)    ]" << endl << endl
 					<< setw(48)
-					<< "[    Mines(M)    ]" << endl << endl
+					<< "[    Mines(M)   ]" << endl << endl
 					<< setw(48)
 					<< "[    Back(B)    ]" << endl << endl
 					<< setw(56)
