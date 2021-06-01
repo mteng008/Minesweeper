@@ -26,6 +26,8 @@
  
  To play our game, just run the main executable: ./play_game 
 The game will appear as an output within PuTTy. There is no need to install any sort of GUI or third party application, just run the code in a compiler/IDE.
+
+When selecting a difficulty, please enter the corresponding letter. During the game, you type your move as a "x y" point, your first number(x-coordinate) followed by a space, followed by your second number(y-coordinate). For example a move could be typed as:8 5
  
  ## Testing
 
