@@ -136,7 +136,7 @@ bool Board::playMinesweeper(char myBoard[][MAXSIDE], char realBoard[][MAXSIDE], 
 			<< "        \\/        \\/     \\/        \\/             \\/     \\/|__|        \\/       " << endl;
 
 		printBoard(myBoard);
-		cout << endl << "You lost!" << endl;
+		cout << endl << "You lost! It's OK, you'll win the next one!" << endl;
 		return true;
 	}
 	else
@@ -305,7 +305,7 @@ void Board::play()
 
 		if ((gameOver == false) && (movesLeft == 0))
 		{
-			cout << endl << "You lost !" << endl;
+			cout << endl << "You won! Awesome job!" << endl;
 			gameOver = true;
 		}
 	}
