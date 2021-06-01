@@ -1,4 +1,4 @@
-fndef BOARD_CPP
+#ifndef BOARD_CPP
 #define BOARD_CPP
 
 #include "board.h"
