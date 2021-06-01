@@ -8,7 +8,7 @@
 
 ## Class Diagram
 
- Class Diagram : [MineSweeperUMLDiagram.pdf](https://github.com/cs100/final-project-mteng008_jyeun018_pdadi001-clowntown/files/6445202/MineSweeperUMLDiagram.pdf)
+ Class Diagram : [UML.png](https://github.com/cs100/final-project-mteng008_jyeun018_pdadi001-clowntown/blob/master/UML.png)
 
  Description : We are going to have a base game class that is going to store the size of the board, amount of mines, and a 2d vector of tile pointers. We are also going to have another class associated with the game class called Tile. This class will return bool values to check for mines and flags. We will also have 4 classes inherited from game: easy, medium, hard, and custom. These 4 classes represent the difficulty level of the game, where custom allows the players to set their own tiles and mine size.
 
