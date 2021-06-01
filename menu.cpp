@@ -18,7 +18,7 @@ void menu()
 	do
 	{
 		reset = false;
-		system("CLS");
+		system("clear");
 
 		outputTitle();
 
@@ -42,7 +42,7 @@ void menu()
 			do
 			{
 				diffreset = false;
-				system("CLS");
+				system("clear");
 
 				outputTitle();
 
@@ -140,7 +140,7 @@ void customSettings(char& side, int& numMines, int& sideLength)
 	do
 	{
 		reset = false;
-		system("CLS");
+		system("clear");
 
 		outputTitle();
 
