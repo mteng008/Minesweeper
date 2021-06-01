@@ -3,10 +3,9 @@
 
 #include "menu.h"
 #include "board.h"
-#include "board.cpp"
 
 void outputTitle();
-void customSettings(char &side, int& numMines, int& sideLength);
+void customSettings(int& sideLength, int& numMines, bool& isB);
 
 void menu()
 {
@@ -18,7 +17,7 @@ void menu()
 	do
 	{
 		reset = false;
-		system("clear");
+		system("CLS");
 
 		outputTitle();
 
@@ -42,7 +41,7 @@ void menu()
 			do
 			{
 				diffreset = false;
-				system("clear");
+				system("CLS");
 
 				outputTitle();
 
@@ -86,20 +85,19 @@ void menu()
 					break;
 				case 'C':
 				{
-					char side;
-					int numMines;
-					int sideLength;
+					int numMines = 0;
+					int sideLength = 0;
+					bool isB = false;
 
-					customSettings(side, numMines, sideLength);
-
-					if (side == 'B')
-					{
-						diffreset = true;
-					}
-					else
+					customSettings(sideLength, numMines, isB);
+					if (isB == false)
 					{
 						Custom* custom = new Custom(sideLength, numMines);
 						custom->play();
+					}
+					else
+					{
+						diffreset = true;
 					}
 				}
 					break;
@@ -133,49 +131,105 @@ void outputTitle()
 		<< "        \\/        \\/     \\/        \\/             \\/     \\/|__|        \\/       " << endl;
 }
 
-void customSettings(char& side, int& numMines, int& sideLength)
+void customSettings(int& sideLength, int& numMines, bool& isB)
 {
-	bool reset;
+	bool reset = true;
+	bool sideChosen = false;
+	bool minesChosen = false;
+	char choice;
 	
 	do
 	{
-		reset = false;
-		system("clear");
+		system("CLS");
 
 		outputTitle();
 
 		cout << endl;
 
 		cout << setw(48)
-			<< "[    Back(B)    ]" << endl << endl 
-			<< setw(56)
-			<< "Enter side length (1-30): ";
-		cin >> side;
+			<< "[    Side(S)    ]" << endl << endl
+			<< setw(48)
+			<< "[    Mines(M)   ]" << endl << endl
+			<< setw(48)
+			<< "[    Back(B)    ]" << endl << endl
+			<< setw(49)
+			<< "Enter your choice: ";
 
-		side = toupper(side);
+		cin >> choice;
+		choice = toupper(choice);
 
-		if (side == 'B')
+		switch (choice)
 		{
+		case 'S':
+			do
+			{
+				sideChosen = false;
+				system("CLS");
+
+				outputTitle();
+
+				cout << endl;
+
+				cout << setw(48)
+					<< "[    Side(S)    ]" << endl << endl
+					<< setw(48)
+					<< "[    Mines(M)   ]" << endl << endl
+					<< setw(48)
+					<< "[    Back(B)    ]" << endl << endl
+					<< setw(56)
+					<< "Enter side length (1-30): ";
+
+				cin >> sideLength;
+
+				if (sideLength >= 1 && sideLength <= 30)
+				{
+					sideChosen = true;
+				}
+			} while (sideChosen == false);
+
+			break;
+		case 'M':
+			do
+			{
+				minesChosen = false;
+				system("CLS");
+
+				outputTitle();
+
+				cout << endl;
+
+				cout << setw(48)
+					<< "[    Side(S)    ]" << endl << endl
+					<< setw(48)
+					<< "[    Mines(M)    ]" << endl << endl
+					<< setw(48)
+					<< "[    Back(B)    ]" << endl << endl
+					<< setw(56)
+					<< "Enter mine count (1-200): ";
+
+				cin >> numMines;
+
+				if (numMines >= 1 && numMines <= 200)
+				{
+					minesChosen = true;
+
+				}
+			} while (minesChosen == false);
+			
+			break;
+		case 'B' :
+			isB = true;
 			return;
-		}
-
-		if ((side - '0' >= 1) && (side - '0' <= 30))
-		{
-			sideLength = side - '0';
-			cout << endl
-				<< setw(57)
-				<< "Enter number of mines (1-200): ";
-			cin >> numMines;
-		}
-		else
-		{
+			break;
+		default:
 			reset = true;
 		}
 
-		if ((numMines < 1) || (numMines > 200) || (numMines > (sideLength * sideLength)))
+		if (sideChosen == true && minesChosen == true)
 		{
-			reset = true;
+			reset = false;
 		}
+		
 		
 	} while (reset == true);
 }
