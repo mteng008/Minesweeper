@@ -1,4 +1,4 @@
-fndef BOARD_CPP
+#ifndef BOARD_CPP
 #define BOARD_CPP
 
 #include "board.h"
@@ -128,7 +128,7 @@ bool Board::playMinesweeper(char myBoard[][MAXSIDE], char realBoard[][MAXSIDE], 
 			myBoard[mines[i][0]][mines[i][1]] = '*';
 		}
 
-		system("CLS");
+		system("clear");
 		cout << "   _____  .__                _________                                          " << endl
 			<< "  /     \\ |__| ____   ____  /   _____/_  _  __ ____   ____ ______   ___________ " << endl
 			<< " /  \\ /  \\|  |/    \\_/ __ \\ \\_____  \\\\ \\/ \\/ // __ \\_/ __ \\\\____ \\_/ __ \\_  __ \\" << endl
@@ -277,7 +277,7 @@ void Board::play()
 {
 	while (gameOver == false)
 	{
-		system("CLS");
+		system("clear");
 		cout << "   _____  .__                _________                                          " << endl
 			<< "  /     \\ |__| ____   ____  /   _____/_  _  __ ____   ____ ______   ___________ " << endl
 			<< " /  \\ /  \\|  |/    \\_/ __ \\ \\_____  \\\\ \\/ \\/ // __ \\_/ __ \\\\____ \\_/ __ \\_  __ \\" << endl
