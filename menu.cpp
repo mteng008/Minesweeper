@@ -3,6 +3,7 @@
 
 #include "menu.h"
 #include "board.h"
+#include "board.cpp"
 
 void outputTitle();
 void customSettings(char &side, int& numMines, int& sideLength);
