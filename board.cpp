@@ -41,7 +41,6 @@ void Board::placeMines(int mines[][2], char realBoard[][MAXSIDE])
 			i++;
 		}
 	}
-
 	return;
 }
 
@@ -271,6 +270,10 @@ int Board::countAdjacentMines(int row, int col, int mines[][2], char realBoard[]
 	}
 
 	return count;
+}
+
+Board::~Board()
+{
 }
 
 void Board::play()
