@@ -1,34 +1,16 @@
 #include "menu.h"
+#include "board.h"
 
+#include "gtest/gtest.h"
 
-
-TEST(DifficultyTest, Easy) {
-
-
-}
-
-TEST(DifficultyTest, Medium) {
-
-}
-
-TEST(DifficultyTest, Hard) {
-
-}
-
-TEST(DifficultyTest, Custom) {
-
-}
-
-TEST(CustomTest, Small){
-
-}
-
-TEST(CustomTest, Hard){
-
+TEST(BaseTest, Overall) {
+  char* test_val[1]; test_val[0] = "./play_game";
 }
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }
+
+
 
